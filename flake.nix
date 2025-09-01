@@ -77,6 +77,9 @@
         general = with pkgs; [
           lua-language-server
         ];
+        python = with pkgs; [
+            ruff-lsp
+            ];
       };
 
       # This is for plugins that will load at startup without using packadd:
@@ -88,13 +91,18 @@
           lazydev-nvim
           nvim-treesitter.withAllGrammars
         ];
+
+        fileManager = with pkgs.vimPlugins; [
+         oil-nvim
+        ];
       };
 
       # not loaded automatically at startup.
       # use with packadd and an autocommand in config to achieve lazy loading
       optionalPlugins = {
         gitPlugins = with pkgs.neovimPlugins; [ ];
-        general = with pkgs.vimPlugins; [ ];
+        general = with pkgs.vimPlugins; [
+        ];
       };
 
       # shared libraries to be added to LD_LIBRARY_PATH
@@ -168,6 +176,7 @@
         categories = {
           general = true;
           gitPlugins = true;
+          fileManager = true;
           customPlugins = true;
           test = true;
           example = {

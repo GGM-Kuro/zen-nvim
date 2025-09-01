@@ -21,6 +21,7 @@ require("nixCatsUtils.lazyCat").setup(nixCats.pawsible({ "allPlugins", "start", 
   -- require("core.completion"),
     require('core.lsp'),
     require('core.treesitter'),
+    require('core.file_manager'),
 
   { import = "custom.plugins" },
 }, lazyOptions)
