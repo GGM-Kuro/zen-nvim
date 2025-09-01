@@ -1,13 +1,14 @@
 return{
   'stevearc/oil.nvim',
   ---@module 'oil'
-  ---@type oil.SetupOpts
   opts = {},
-  enabled = require('nixCatsUtils').enableForCategory("fileManager"),
-  commands = { "Oil"},
-  -- Optional dependencies
-  -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-  lazy = false,
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" },
+  enabled = require('nixCatsUtils').enableForCategory('fileManager'),
+  config = true,
+  keys = {
+    {"-","<CMD>Oil <CR>", desc = "Oil Float"},
+    {"_", "<CMD>lua require('oil').open(vim.fn.expand('$PWD'))<CR>", desc = "Oil Float"}
+
+  },
 }

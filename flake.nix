@@ -84,16 +84,20 @@
 
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [ ];
+        gitPlugins = with pkgs.neovimPlugins; [
+        ];
         general = with pkgs.vimPlugins; [
           nvim-lspconfig
           fidget-nvim
           lazydev-nvim
           nvim-treesitter.withAllGrammars
+          nightfox-nvim
         ];
 
         fileManager = with pkgs.vimPlugins; [
          oil-nvim
+         mini-nvim
+         nvim-web-devicons
         ];
       };
 
