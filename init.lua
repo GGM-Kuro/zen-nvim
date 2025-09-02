@@ -2,6 +2,8 @@ require("nixCatsUtils").setup({
   non_nix_value = true,
 })
 
+require("core.options")
+
 local function getlockfilepath()
   if require("nixCatsUtils").isNixCats and type(require("nixCats").settings.unwrappedCfgPath) == "string" then
     return require("nixCats").settings.unwrappedCfgPath .. "/lazy-lock.json"
