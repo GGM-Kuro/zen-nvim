@@ -5,6 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
+    "plugins-snakcs.nvim" = {
+	  url = "github:folke/snacks.nvim";
+	  flake = false;
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -32,7 +37,7 @@
     # will not apply to module imports
     # as that will have your system values
     extra_pkg_config = {
-      # allowUnfree = true;
+      allowUnfree = true;
     };
     # management of the system variable is one of the harder parts of using flakes.
 
@@ -76,6 +81,7 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           lua-language-server
+          lazygit
         ];
         python = with pkgs; [
             ruff-lsp
@@ -92,6 +98,8 @@
           lazydev-nvim
           nvim-treesitter.withAllGrammars
           nightfox-nvim
+    	  snacks-nvim
+
         ];
 
         fileManager = with pkgs.vimPlugins; [
