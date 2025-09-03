@@ -2,7 +2,7 @@ local formatters = {
 	lua = { "stylua", lsp_format = "fallback" },
 	nix = { "nixfmt" },
 	json = { "jq" },
-	python = { "ruff" },
+	python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 }
 
 if require("nixCatsUtils").enableForCategory("go") then

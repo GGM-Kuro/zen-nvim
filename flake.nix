@@ -10,6 +10,11 @@
       flake = false;
     };
 
+    "plugins-menu.nvim" = {
+      url = "github:nvzone/menu";
+      flake = false;
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -126,6 +131,7 @@
               fidget-nvim
               lazydev-nvim
               conform-nvim
+              nvim-colorizer-lua
               friendly-snippets
               gitsigns-nvim
               lualine-nvim
