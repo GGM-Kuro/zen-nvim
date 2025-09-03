@@ -3,6 +3,10 @@ require("nixCatsUtils").setup({
 })
 
 require("core.options")
+require("core.epic_replace")
+require("core.diagnostic")
+require("custom.utilitymaps")
+require("custom.quickfixmaps")
 
 local function getlockfilepath()
   if require("nixCatsUtils").isNixCats and type(require("nixCats").settings.unwrappedCfgPath) == "string" then
@@ -18,10 +22,7 @@ local lazyOptions = {
 }
 
 require("nixCatsUtils.lazyCat").setup(nixCats.pawsible({ "allPlugins", "start", "lazy.nvim" }), {
-  -- require("core.treesitter"),
-  -- require("core.file_manager"),
-  -- require("core.completion"),
-    require('core.lsp'),
+    require("core.completion"),
     require('core.treesitter'),
     require('core.file_manager'),
     require('core.theme'),
