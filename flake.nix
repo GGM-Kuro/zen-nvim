@@ -115,9 +115,10 @@
               stylua
             ];
             python = with pkgs; [
-              ruff-lsp
+              ruff
               python312
               python312Packages.python-lsp-server
+              python312Packages.python-lsp-ruff
             ];
           };
 
@@ -250,6 +251,7 @@
               general = true;
               gitPlugins = true;
               fileManager = true;
+              python = true;
               customPlugins = true;
               test = true;
               example = {
