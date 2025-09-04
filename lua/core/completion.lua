@@ -1,5 +1,6 @@
 return {
   {
+
     "saghen/blink.compat",
     -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
     version = "*",
@@ -44,8 +45,9 @@ return {
         preset = "default",
         ["<S-Tab>"] = {},
         ["<Tab>"] = {},
-        ["<C-l>"] = { "snippet_forward", "fallback" },
+        ["<C-k>"] = { "snippet_forward", "fallback" },
         ["<C-j>"] = { "snippet_backward", "fallback" },
+        ["<C-p>"] = { "select_next", "fallback" },
       },
       signature = {
         enabled = true,
@@ -75,31 +77,8 @@ return {
         default = function()
           local sources = { "lsp", "path", "snippets", "buffer" }
 
-          if
-            require("nixCatsUtils").enableForCategory("laravel")
-            and vim.bo.filetype == "php"
-            and vim.fn.filereadable("artisan") == 1
-          then
-            table.insert(sources, "laravel")
-          end
-
           if vim.tbl_contains({ "sql", "mysq", "plsql" }, vim.bo.filetype) then
             return { "dadbod", "snippets" }
-          end
-
-
-          if vim.tbl_contains({ "markdown" }, vim.bo.filetype) then
-            return { "buffer", "path", "snippets" }
-          end
-          if require("nixCatsUtils").enableForCategory("copilot") then
-
-            table.insert(sources, "copilot")
-          end
-
-          if require("nixCatsUtils").enableForCategory("avante") then
-            table.insert(sources, "avante_commands")
-            table.insert(sources, "avante_mentions")
-            table.insert(sources, "avante_files")
           end
 
           return sources
