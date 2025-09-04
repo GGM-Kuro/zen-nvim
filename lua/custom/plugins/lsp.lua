@@ -217,7 +217,7 @@ return{
       else
         servers.rnix = {}
         servers.nil_ls = {}
-        servers.pyright = {}
+        -- servers.pyright = {}
       end
       servers.lua_ls = {
         -- cmd = {...},
