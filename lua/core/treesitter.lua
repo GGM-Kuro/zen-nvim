@@ -6,6 +6,7 @@ return { -- Highlight, edit, and navigate code
 		-- because nix already ensured they were installed.
 		ensure_installed = require("nixCatsUtils").lazyAdd({
 			"bash",
+            "pyright",
 			"python",
 			"c",
 			"diff",

@@ -7,6 +7,7 @@ vim.keymap.set({ "n" }, "<leader>vp", function()
 end, { desc = "Jump to previous diagnostic" })
 
 vim.diagnostic.config({
+  virtual_text = true;
   signs = {
 
     text = {
