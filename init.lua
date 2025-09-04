@@ -5,7 +5,7 @@ require("nixCatsUtils").setup({
 require("core.options")
 require("core.epic_replace")
 require("core.diagnostic")
-require("core.lsp")
+-- require("core.lsp")
 require("custom.utilitymaps")
 require("custom.quickfixmaps")
 

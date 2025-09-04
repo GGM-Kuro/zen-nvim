@@ -1,5 +1,6 @@
 return{
      'neovim/nvim-lspconfig',
+    enabled = true,
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       {
@@ -216,6 +217,7 @@ return{
       else
         servers.rnix = {}
         servers.nil_ls = {}
+        servers.pyright = {}
       end
       servers.lua_ls = {
         -- cmd = {...},
