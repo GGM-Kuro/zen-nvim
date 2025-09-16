@@ -142,6 +142,8 @@
               mini-icons
               mini-pick
               neotest
+              nvim-dap
+              nvim-dap-python
               neotest-plenary
               neotest-python
               nvim-autopairs
