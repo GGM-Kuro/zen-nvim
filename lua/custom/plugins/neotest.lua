@@ -83,18 +83,14 @@ return {
 	config = function()
 		local adapters = {
 			require("neotest-plenary"),
-		}
-		if require("nixCatsUtils").enableForCategory("python") then
-			table.insert(
-				adapters,
-				require("neotest-python")({
+            require("neotest-python")({
 					dap = { justMyCode = false, console = "integratedTerminal" },
 					args = { "--log-level", "DEBUG", "--quiet" },
 					runner = "pytest",
 					python = ".venv/bin/python", -- usa el python del $PATH activo
+                    pytest_discover_instances = true,
 				})
-			)
-		end
+		}
 
 		if require("nixCatsUtils").enableForCategory("go") then
 			table.insert(
