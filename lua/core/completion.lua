@@ -1,6 +1,5 @@
 return {
   {
-
     "saghen/blink.compat",
     -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
     version = "*",
@@ -21,11 +20,9 @@ return {
         config = function()
           require("luasnip.loaders.from_vscode").lazy_load()
         end,
-
       },
       { "echasnovski/mini.icons", opts = {} },
     },
-
 
     -- use a release tag to download pre-built binaries
     version = "*",
@@ -45,15 +42,13 @@ return {
         preset = "default",
         ["<S-Tab>"] = {},
         ["<Tab>"] = {},
-        ["<C-k>"] = { "snippet_forward", "fallback" },
+        ["<C-l>"] = { "snippet_forward", "fallback" },
         ["<C-j>"] = { "snippet_backward", "fallback" },
-        ["<C-p>"] = { "select_next", "fallback" },
       },
       signature = {
         enabled = true,
         trigger = {
           enabled = false,
-
         },
       },
 
@@ -76,14 +71,65 @@ return {
       sources = {
         default = function()
           local sources = { "lsp", "path", "snippets", "buffer" }
+          if
+            require("nixCatsUtils").enableForCategory("laravel")
+            and vim.bo.filetype == "php"
+            and vim.fn.filereadable("artisan") == 1
+          then
+            table.insert(sources, "laravel")
+          end
 
           if vim.tbl_contains({ "sql", "mysq", "plsql" }, vim.bo.filetype) then
             return { "dadbod", "snippets" }
           end
 
+          if vim.tbl_contains({ "markdown" }, vim.bo.filetype) then
+            return { "buffer", "path", "snippets" }
+          end
+          if require("nixCatsUtils").enableForCategory("copilot") then
+            table.insert(sources, "copilot")
+          end
+
+          if require("nixCatsUtils").enableForCategory("avante") then
+            table.insert(sources, "avante_commands")
+            table.insert(sources, "avante_mentions")
+            table.insert(sources, "avante_files")
+          end
+
           return sources
         end,
-
+        providers = {
+          laravel = {
+            name = "laravel",
+            module = "blink.compat.source",
+            score_offset = 95, -- show at a higher priority than lsp
+          },
+          dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            score_offset = 100,
+            async = true,
+          },
+          avante_commands = {
+            name = "avante_commands",
+            module = "blink.compat.source",
+            score_offset = 90, -- show at a higher priority than lsp
+            opts = {},
+          },
+          avante_files = {
+            name = "avante_files",
+            module = "blink.compat.source",
+            score_offset = 100, -- show at a higher priority than lsp
+            opts = {},
+          },
+          avante_mentions = {
+            name = "avante_mentions",
+            module = "blink.compat.source",
+            score_offset = 1000, -- show at a higher priority than lsp
+            opts = {},
+          },
+        },
       },
       completion = {
         menu = {
@@ -95,7 +141,6 @@ return {
             return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
           end,
         },
-
       },
     },
     opts_extend = { "sources.default" },
