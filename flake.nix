@@ -155,6 +155,9 @@
               vim-surround
               vim-easy-align
               vim-repeat
+              vim-dadbod
+              vim-dadbod-completion
+              vim-dadbod-ui
               (harpoon2.overrideAttrs { pname = "harpoon"; })
               which-key-nvim
 
