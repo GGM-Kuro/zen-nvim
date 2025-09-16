@@ -4,6 +4,7 @@ local dependencies = {
   "antoinemadec/FixCursorHold.nvim",
   "nvim-treesitter/nvim-treesitter",
   "nvim-neotest/neotest-plenary",
+  "nvim-neotest/neotest-python",
 }
 
 if require("nixCatsUtils").enableForCategory("go") then
@@ -83,7 +84,11 @@ return {
       require("neotest-plenary"),
     }
     if require("nixCatsUtils").enableForCategory("python") then
-      table.insert(adapters, require("neotest-python"))
+      table.insert(adapters, require("neotest-python")({
+                dap = { justMyCode = false},
+                runner = "pytest",
+                python = ".venv/bin/python",
+            }))
     end
 
     if require("nixCatsUtils").enableForCategory("go") then
