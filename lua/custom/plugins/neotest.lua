@@ -92,6 +92,9 @@ return {
                 },
                 args = { "--log-level", "DEBUG", "--quiet"},
                 runner = "pytest",
+                cwd = function ()
+                    return vim.fn.getcwd()
+                end
             }))
     end
 
