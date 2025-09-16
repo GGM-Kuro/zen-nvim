@@ -91,10 +91,7 @@ return {
 					dap = { justMyCode = false, console = "integratedTerminal" },
 					args = { "--log-level", "DEBUG", "--quiet" },
 					runner = "pytest",
-					python = vim.fn.getcwd() .. "/.venv/bin/python", -- usa el python del $PATH activo
-					cwd = function()
-						return vim.fn.getcwd()
-					end,
+					python = ".venv/bin/python", -- usa el python del $PATH activo
 				})
 			)
 		end
