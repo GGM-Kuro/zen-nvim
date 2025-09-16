@@ -11,6 +11,27 @@ if require("nixCatsUtils").enableForCategory("go") then
   table.insert(dependencies, "fredrikaverpil/neotest-golang")
 end
 
+-- función que busca la raíz del proyecto
+local function get_project_root()
+  local cwd = vim.fn.getcwd()
+  local pyproject = vim.fn.findfile("pyproject.toml", cwd .. ";")
+  if pyproject ~= "" then
+    return vim.fn.fnamemodify(pyproject, ":h")
+  end
+
+  local pytest_ini = vim.fn.findfile("pytest.ini", cwd .. ";")
+  if pytest_ini ~= "" then
+    return vim.fn.fnamemodify(pytest_ini, ":h")
+  end
+
+  local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+  if git_root and git_root ~= "" then
+    return git_root
+  end
+
+  return cwd
+end
+
 return {
   "nvim-neotest/neotest",
   dependencies = dependencies,
@@ -83,25 +104,23 @@ return {
     local adapters = {
       require("neotest-plenary"),
     }
+
     if require("nixCatsUtils").enableForCategory("python") then
       table.insert(adapters, require("neotest-python")({
-                dap = { justMyCode = false},
-                runner = "pytest",
-                python = ".venv/bin/python",
-                args = {"-v"},
-            }))
+        dap = { justMyCode = false },
+        runner = "pytest",
+        python = ".venv/bin/python",
+        args = { "-v" },
+        cwd = get_project_root, -- 👈 root dinámico
+      }))
     end
 
     if require("nixCatsUtils").enableForCategory("go") then
-      table.insert(
-        adapters,
-        require("neotest-golang")({
-          go_test_args = { "-v", "-count=1" },
-        })
-      )
+      table.insert(adapters, require("neotest-golang")({
+        go_test_args = { "-v", "-count=1" },
+      }))
     end
 
-    ---@diagnostic disable-next-line: missing-fields
     require("neotest").setup({
       adapters = adapters,
     })
