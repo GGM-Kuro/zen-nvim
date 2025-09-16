@@ -88,6 +88,7 @@ return {
                 dap = { justMyCode = false},
                 runner = "pytest",
                 python = ".venv/bin/python",
+                args = {"--log-level", "DEBUG"},
             }))
     end
 
