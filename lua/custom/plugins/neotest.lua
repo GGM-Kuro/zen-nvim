@@ -85,9 +85,9 @@ return {
 			require("neotest-plenary"),
             require("neotest-python")({
 					dap = { justMyCode = false, console = "integratedTerminal" },
-					args = { "--log-level", "DEBUG", "--quiet" },
-					runner = "pytest",
+					runner = "unittest",
 					python = ".venv/bin/python", -- usa el python del $PATH activo
+                    args = { "-v"},
                     pytest_discover_instances = true,
 				})
 		}
