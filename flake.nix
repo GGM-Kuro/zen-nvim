@@ -140,6 +140,7 @@
               luasnip
               mini-ai
               mini-icons
+              flutter-tools-nvim
               mini-pick
               neotest
               nvim-dap
