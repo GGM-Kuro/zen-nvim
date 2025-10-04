@@ -140,6 +140,7 @@
             general = with pkgs.vimPlugins; [
               nvim-lspconfig
               flash-nvim
+              nui-nvim
               fidget-nvim
               lazydev-nvim
               conform-nvim
