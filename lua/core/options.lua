@@ -20,13 +20,13 @@ vim.o.conceallevel = 1
 vim.o.laststatus = 3
 
 -- Indentation
--- vim.o.expandtab = true
--- vim.o.tabstop = 4
---
--- vim.o.softtabstop = 4
---
--- vim.o.shiftwidth = 4
--- vim.o.smartindent = true
+vim.o.expandtab = true
+vim.o.tabstop = 4
+
+vim.o.softtabstop = 4
+
+vim.o.shiftwidth = 4
+vim.o.smartindent = true
 
 -- Search settings
 vim.o.hlsearch = false
