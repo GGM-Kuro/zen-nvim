@@ -19,7 +19,8 @@ return {
 			vim.g.direnv_silent_load = 1
 		end,
 	},
-	"echasnovski/mini.ai",
+	{"nvim-mini/mini.ai", config = true},
+	{"nvim-mini/mini.splitjoin",config = true},
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
