@@ -14,6 +14,7 @@ return { -- Highlight, edit, and navigate code
 			"lua",
 			"luadoc",
 			"markdown",
+            "dart",
 			"vim",
 			"vimdoc",
 		}),
@@ -27,7 +28,7 @@ return { -- Highlight, edit, and navigate code
 			--  the list of additional_vim_regex_highlighting and disabled languages for indent.
 			additional_vim_regex_highlighting = { "ruby" },
 		},
-		indent = { enable = true, disable = { "ruby" } },
+		indent = { enable = true, disable = { "ruby", "dart" } },
 	},
 	config = function(_, opts)
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`

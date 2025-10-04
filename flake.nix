@@ -97,6 +97,7 @@
           # provide when you build the package using this builder function.
           # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
 
+        
           # lspsAndRuntimeDeps:
           # this section is for dependencies that should be available
           # at RUN TIME for plugins. Will be available to PATH within neovim terminal
@@ -107,7 +108,10 @@
               lazygit
               fd
               ripgrep
+              tree-sitter
+              # tree-sitter-grammars
               gh
+              vscode-extensions.dart-code.flutter
               git
               imagemagick
               nixd
@@ -120,6 +124,12 @@
               python312
               python312Packages.python-lsp-server
               python312Packages.python-lsp-ruff
+              python312Packages.pyttest
+              python313
+              python313Packages.python-lsp-server
+              python313Packages.python-lsp-ruff
+              python313Packages.pyttest
+
             ];
           };
 
@@ -152,6 +162,8 @@
               blink-compat
               nvim-treesitter.withAllGrammars
               nvim-treesitter-textobjects
+              nvim-treesitter-pyfold
+              nvim-treesitter-parsers.dart
               plenary-nvim
               nightfox-nvim
               snacks-nvim
