@@ -10,7 +10,7 @@ return {
     require("flutter-tools").setup({
       ui = {
         border = "rounded",
-        notification_style = "native", -- puede ser "native" o "plugin"
+        notification_style = "plugin",
       },
       decorations = {
         statusline = {
@@ -44,15 +44,6 @@ return {
       outline = {
         open_cmd = "30vnew",
         auto_open = false,
-      },
-      lsp = {
-        color = {
-          enabled = true,
-          background = false,
-          foreground = false,
-          virtual_text = true,
-          virtual_text_str = "■",
-        },
       },
     })
 
