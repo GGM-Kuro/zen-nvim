@@ -1,22 +1,69 @@
 return {
-  'nvim-flutter/flutter-tools.nvim',
-  lazy = false,  -- Esto indica que el plugin se carga inmediatamente
+  "nvim-flutter/flutter-tools.nvim",
+  lazy = false,
   dependencies = {
-    'nvim-lua/plenary.nvim',  -- Necesario para las utilidades
-    'stevearc/dressing.nvim', -- Opcional, pero recomendado si usas vim.ui.select
+    "nvim-lua/plenary.nvim",
+    "stevearc/dressing.nvim",
   },
-  opts = true,  -- Otras opciones que pudieras configurar para el plugin
-
   config = function()
+    -- Configuración de flutter-tools
+    require("flutter-tools").setup({
+      ui = {
+        border = "rounded",
+        notification_style = "native", -- puede ser "native" o "plugin"
+      },
+      decorations = {
+        statusline = {
+          app_version = false,
+          device = false,
+          project_config = false,
+        },
+      },
+      debugger = {
+        enabled = false,
+        exception_breakpoints = {},
+        evaluate_to_string_in_debug_views = true,
+      },
+      closing_tags = {
+        highlight = "ErrorMsg",
+        prefix = ">",
+        priority = 10,
+        enabled = true,
+      },
+      dev_log = {
+        enabled = true,
+        filter = nil,
+        notify_errors = false,
+        open_cmd = "15split",
+        focus_on_open = true,
+      },
+      dev_tools = {
+        autostart = false,
+        auto_open_browser = false,
+      },
+      outline = {
+        open_cmd = "30vnew",
+        auto_open = false,
+      },
+      lsp = {
+        color = {
+          enabled = true,
+          background = false,
+          foreground = false,
+          virtual_text = true,
+          virtual_text_str = "■",
+        },
+      },
+    })
+
+    -- Funcionalidad extendida para seleccionar y ejecutar comandos Flutter
     local M = {}
     local commands = require("flutter-tools.commands")
-    local ui = require("flutter-tools.ui")
     local devices = require("flutter-tools.devices")
 
-    -- Lista de comandos de Flutter
+    -- Lista de comandos disponibles
     function M.get_flutter_commands()
       return {
-        -- Comandos básicos de Flutter
         { label = "Flutter Run", command = commands.run },
         { label = "Flutter Debug", command = commands.debug },
         { label = "Flutter Reload", command = commands.reload },
@@ -35,26 +82,22 @@ return {
         { label = "Flutter Rename", command = commands.rename },
         { label = "Flutter Log Clear", command = commands.log_clear },
         { label = "Flutter Log Toggle", command = commands.log_toggle },
-
-        -- Comandos de dispositivos
         { label = "Flutter Devices", command = devices.list_devices },
         { label = "Flutter Emulators", command = devices.list_emulators },
       }
     end
 
-    -- Función para mostrar el selector de comandos
+    -- Selector de comandos con vim.ui.select
     function M.select_flutter_command()
       local cmds = M.get_flutter_commands()
 
-      -- Usamos vim.ui.select para mostrar la lista de comandos de Flutter
       vim.ui.select(cmds, {
         prompt = "Selecciona un comando Flutter:",
         format_item = function(item)
-          return item.label  -- Mostramos solo el nombre del comando
+          return item.label
         end,
       }, function(selected_command)
         if selected_command then
-          -- Ejecutar el comando seleccionado
           local success, msg = pcall(selected_command.command)
           if not success then
             vim.notify(msg, vim.log.levels.ERROR)
@@ -65,14 +108,10 @@ return {
       end)
     end
 
-    -- Mapear la tecla para abrir el selector
+    -- Mapear tecla para abrir el selector
     vim.keymap.set({ "n" }, "<leader>mm", function()
       M.select_flutter_command()
     end, { desc = "Seleccionar y ejecutar un comando Flutter" })
-
-    -- Aquí puedes agregar otros comandos o configuraciones adicionales para Flutter
-
-    return M
-  end
+  end,
 }
 
