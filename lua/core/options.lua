@@ -48,3 +48,11 @@ vim.o.clipboard = "unnamedplus"
 
 -- Disable php by filetype mappings
 vim.g.no_php_maps = 1
+
+vim.cmd [[
+  augroup TrimWhitespace
+    autocmd!
+    autocmd BufWritePre * %s/\s\+$//e
+  augroup END
+]]
+

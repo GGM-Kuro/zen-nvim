@@ -80,7 +80,7 @@ return {
 
 		vim.lsp.enable("lua_ls")
 		vim.lsp.enable("phpactor")
-		vim.lsp.enable("dart")
+		-- vim.lsp.enable("dartls")
 		vim.lsp.enable("ts_ls", require("nixCatsUtils").enableForCategory("javascript"))
 		vim.lsp.enable("tailwind", require("nixCatsUtils").enableForCategory("javascript"))
 		vim.lsp.enable("emmet", require("nixCatsUtils").enableForCategory("javascript"))
