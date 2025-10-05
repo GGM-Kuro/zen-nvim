@@ -41,6 +41,9 @@ return {
         autostart = false,
         auto_open_browser = false,
       },
+      widget_guides = {
+                enabled = true
+            },
       outline = {
         open_cmd = "30vnew",
         auto_open = false,
