@@ -39,7 +39,7 @@ return {
 			},
 			dev_tools = {
 				autostart = false,
-				auto_open_browser = false,
+				auto_open_browser = true,
 			},
 			widget_guides = {
 				enabled = true,
