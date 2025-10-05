@@ -2,6 +2,16 @@ return {
 	"tpope/vim-surround",
 	"tpope/vim-dispatch",
 	"tpope/vim-repeat",
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("noice").setup({})
+		end,
+	},
 	-- Lazy
 	{
 		"catgoose/nvim-colorizer.lua",
@@ -19,8 +29,8 @@ return {
 			vim.g.direnv_silent_load = 1
 		end,
 	},
-	{"nvim-mini/mini.ai", config = true},
-	{"nvim-mini/mini.splitjoin",config = true},
+	{ "nvim-mini/mini.ai", config = true },
+	{ "nvim-mini/mini.splitjoin", config = true },
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",

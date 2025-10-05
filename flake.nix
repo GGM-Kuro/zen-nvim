@@ -97,7 +97,7 @@
           # provide when you build the package using this builder function.
           # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
 
-        
+
           # lspsAndRuntimeDeps:
           # this section is for dependencies that should be available
           # at RUN TIME for plugins. Will be available to PATH within neovim terminal
@@ -141,6 +141,7 @@
               nvim-lspconfig
               flash-nvim
               nui-nvim
+              noice-nvim
               fidget-nvim
               lazydev-nvim
               conform-nvim
