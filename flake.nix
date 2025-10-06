@@ -157,7 +157,6 @@
               mini-icons
               flutter-tools-nvim
               mini-pick
-              kulala-nvim
               neotest
               nvim-dap
               nvim-dap-python
@@ -170,9 +169,6 @@
               nvim-treesitter-textobjects
               nvim-treesitter-pyfold
               nvim-treesitter-parsers.dart
-              nvim-treesitter-parsers.yaml
-              nvim-treesitter-parsers.html
-              nvim-treesitter-parsers.http
               plenary-nvim
               nightfox-nvim
               snacks-nvim
