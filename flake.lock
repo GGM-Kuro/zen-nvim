@@ -47,19 +47,19 @@
         "type": "github"
       }
     },
-    "plugins-snakcs.nvim": {
+    "plugins-quicktype.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1759249047,
-        "narHash": "sha256-gS+9fi43wPGDMdPNA14GQ9QZdOxCD6lMx4Do+1TDaxg=",
-        "owner": "folke",
-        "repo": "snacks.nvim",
-        "rev": "bfe8c26dbd83f7c4fbc222787552e29b4eccfcc0",
+        "lastModified": 1746874816,
+        "narHash": "sha256-6BUKuRZ+7cUYvXuP9WF760IID9O4x/hn7uOK5/iApgc=",
+        "owner": "midoBB",
+        "repo": "nvim-quicktype",
+        "rev": "6d557a32fec1fb8a0b635e98cb856b24c7f0ef00",
         "type": "github"
       },
       "original": {
-        "owner": "folke",
-        "repo": "snacks.nvim",
+        "owner": "midoBB",
+        "repo": "nvim-quicktype",
         "type": "github"
       }
     },
@@ -68,7 +68,7 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "plugins-menu.nvim": "plugins-menu.nvim",
-        "plugins-snakcs.nvim": "plugins-snakcs.nvim"
+        "plugins-quicktype.nvim": "plugins-quicktype.nvim"
       }
     }
   },

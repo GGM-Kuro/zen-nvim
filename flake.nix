@@ -5,15 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    "plugins-snakcs.nvim" = {
-      url = "github:folke/snacks.nvim";
-      flake = false;
-    };
-
     "plugins-menu.nvim" = {
       url = "github:nvzone/menu";
       flake = false;
     };
+
+    "plugins-quicktype.nvim" = {
+      url = "github:midoBB/nvim-quicktype";
+      flake = false;
+    };
+
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -115,6 +116,7 @@
               git
               imagemagick
               nixd
+              quicktype
               nixfmt-rfc-style
               stylua
             ];
@@ -155,6 +157,7 @@
               mini-icons
               flutter-tools-nvim
               mini-pick
+              kulala-nvim
               neotest
               nvim-dap
               nvim-dap-python
@@ -167,6 +170,9 @@
               nvim-treesitter-textobjects
               nvim-treesitter-pyfold
               nvim-treesitter-parsers.dart
+              nvim-treesitter-parsers.yaml
+              nvim-treesitter-parsers.html
+              nvim-treesitter-parsers.http
               plenary-nvim
               nightfox-nvim
               snacks-nvim
