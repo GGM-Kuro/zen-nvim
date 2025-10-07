@@ -20,7 +20,7 @@ return {
 				},
 			},
 			debugger = {
-				enabled = false,
+				enabled = true,
 				exception_breakpoints = {},
 				evaluate_to_string_in_debug_views = true,
 			},

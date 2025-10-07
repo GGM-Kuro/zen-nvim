@@ -139,11 +139,11 @@ return {
 				request = "launch",
 				name = "Launch Flutter Program",
 				-- The nvim-dap plugin populates this variable with the filename of the current buffer
-				program = "${file}",
+				program = "${workspaceFolder}/lib/main.dart",
 				-- The nvim-dap plugin populates this variable with the editor's current working directory
 				cwd = "${workspaceFolder}",
 				-- This gets forwarded to the Flutter CLI tool, substitute `linux` for whatever device you wish to launch
-				-- toolArgs = { "-d", "linux" },
+				toolArgs = { "-d", "Android" },
 			},
 		}
 	end,
