@@ -10,7 +10,7 @@ return {
     "DBUIAddConnection",
     "DBUIFindBuffer",
   },
-  keys = { { "<leader><leader>db", "<cmd>DBUIToggle<cr>" } },
+  keys = { { "<leader><leader>d", "<cmd>DBUIToggle<cr>" } },
   init = function()
     vim.g.db_ui_use_nerd_fonts = 1
     vim.g.db_ui_show_database_icon = 1
