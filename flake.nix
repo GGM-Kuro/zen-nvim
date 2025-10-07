@@ -140,6 +140,7 @@
               nvim-lspconfig
               flash-nvim
               nui-nvim
+              nvim-window-picker
               noice-nvim
               nvzone-menu
               pkgs.neovimPlugins.debugmaster

@@ -12,6 +12,13 @@ return {
 			require("noice").setup({})
 		end,
 	},
+	{
+		"s1n7ax/nvim-window-picker",
+		tag = "v2.*",
+		config = function()
+			require("window-picker").setup()
+		end,
+	},
 	-- Lazy
 	{
 		"catgoose/nvim-colorizer.lua",
@@ -42,9 +49,9 @@ return {
 	},
 	{ "nvzone/volt", lazy = true },
 	{
-	    "nvzone/Typr",
-	    lazy = true,
-        cmd = { "Typr", "TyprStats"}
+		"nvzone/Typr",
+		lazy = true,
+		cmd = { "Typr", "TyprStats" },
 	},
 	{
 		"junegunn/vim-easy-align",

@@ -12,6 +12,7 @@ vim.o.signcolumn = "yes"
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.mouse = ""
+vim.o.cursorline = true
 vim.o.colorcolumn = "80"
 
 vim.o.termguicolors = true
