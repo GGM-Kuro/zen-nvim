@@ -41,7 +41,11 @@ return {
 		-- this is equivalent to setup({}) function
 	},
 	{ "nvzone/volt", lazy = true },
-	{ "nvzone/menu", lazy = true },
+	{
+	    "nvzone/Typr",
+	    lazy = true,
+        cmd = { "Typr", "TyprStats"}
+	},
 	{
 		"junegunn/vim-easy-align",
 

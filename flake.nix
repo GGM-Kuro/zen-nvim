@@ -5,17 +5,15 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    "plugins-menu.nvim" = {
-      url = "github:nvzone/menu";
+    "plugins-debugmaster" = {
+      url = "github:miroshQa/debugmaster.nvim";
       flake = false;
     };
 
-    "plugins-quicktype.nvim" = {
+    "plugins-quicktype" = {
       url = "github:midoBB/nvim-quicktype";
       flake = false;
     };
-
-
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -98,7 +96,6 @@
           # provide when you build the package using this builder function.
           # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
 
-
           # lspsAndRuntimeDeps:
           # this section is for dependencies that should be available
           # at RUN TIME for plugins. Will be available to PATH within neovim terminal
@@ -144,6 +141,11 @@
               flash-nvim
               nui-nvim
               noice-nvim
+              nvzone-menu
+              pkgs.neovimPlugins.debugmaster
+              pkgs.neovimPlugins.quicktype
+              nvzone-volt
+              nvzone-typr
               fidget-nvim
               lazydev-nvim
               conform-nvim
@@ -159,6 +161,9 @@
               mini-pick
               neotest
               nvim-dap
+              nvim-dap-ui
+              nvim-nio
+              (harpoon2.overrideAttrs { pname = "harpoon"; })
               nvim-dap-python
               neotest-plenary
               neotest-python

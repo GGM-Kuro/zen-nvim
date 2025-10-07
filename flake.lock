@@ -31,23 +31,23 @@
         "type": "github"
       }
     },
-    "plugins-menu.nvim": {
+    "plugins-debugmaster": {
       "flake": false,
       "locked": {
-        "lastModified": 1748784363,
-        "narHash": "sha256-4GfQ6Mo32rsoQAXKZF9Bpnm/sms2hfbrTldpLp5ySoY=",
-        "owner": "nvzone",
-        "repo": "menu",
-        "rev": "7a0a4a2896b715c066cfbe320bdc048091874cc6",
+        "lastModified": 1752666818,
+        "narHash": "sha256-pdgS0z8KdLsl7VexbPaRPtYc2lebzAgTtM3B52IaCpQ=",
+        "owner": "miroshQa",
+        "repo": "debugmaster.nvim",
+        "rev": "3d144b98c2c23f39123fbf5f10fdff7d6480a0e6",
         "type": "github"
       },
       "original": {
-        "owner": "nvzone",
-        "repo": "menu",
+        "owner": "miroshQa",
+        "repo": "debugmaster.nvim",
         "type": "github"
       }
     },
-    "plugins-quicktype.nvim": {
+    "plugins-quicktype": {
       "flake": false,
       "locked": {
         "lastModified": 1746874816,
@@ -67,8 +67,8 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-menu.nvim": "plugins-menu.nvim",
-        "plugins-quicktype.nvim": "plugins-quicktype.nvim"
+        "plugins-debugmaster": "plugins-debugmaster",
+        "plugins-quicktype": "plugins-quicktype"
       }
     }
   },
