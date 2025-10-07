@@ -6,8 +6,7 @@ return {
 
 		-- Required dependency for nvim-dap-ui
 		"nvim-neotest/nvim-nio",
-
-		-- NOTE: nixCats: dont use mason on nix. We can already download stuff just fine.
+        'theHamsta/nvim-dap-virtual-text',
 		{ "williamboman/mason.nvim", enabled = require("nixCatsUtils").lazyAdd(true, false) },
 		{ "jay-babu/mason-nvim-dap.nvim", enabled = require("nixCatsUtils").lazyAdd(true, false) },
 	},

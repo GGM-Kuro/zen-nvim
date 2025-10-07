@@ -162,6 +162,7 @@
               neotest
               nvim-dap
               nvim-dap-ui
+              nvim-dap-virtual-text
               nvim-nio
               (harpoon2.overrideAttrs { pname = "harpoon"; })
               nvim-dap-python
