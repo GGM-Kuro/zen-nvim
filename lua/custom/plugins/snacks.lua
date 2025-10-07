@@ -96,8 +96,12 @@ return {
 				end, "Open the scratch buffer selector")
 
 				-- Misc
-				map("<leader>bd", function()
+				map("<leader>bb", function()
 					Snacks.bufdelete()
+				end, "Delete buffer")
+
+				map("<leader>ba", function()
+					Snacks.bufdelete.other()
 				end, "Delete buffer")
 
 				map("<leader>cR", function()

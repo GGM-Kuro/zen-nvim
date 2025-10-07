@@ -63,12 +63,29 @@
         "type": "github"
       }
     },
+    "plugins-winpick": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751282954,
+        "narHash": "sha256-YXwM0hzqyIob6wMumkqqsPp2nRMuPxYnrHW4ihU6htw=",
+        "owner": "MarcusGrass",
+        "repo": "nvim_winpick",
+        "rev": "18037e9f5ce417bd75d16ebbf70787bcc478c249",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MarcusGrass",
+        "repo": "nvim_winpick",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "plugins-debugmaster": "plugins-debugmaster",
-        "plugins-quicktype": "plugins-quicktype"
+        "plugins-quicktype": "plugins-quicktype",
+        "plugins-winpick": "plugins-winpick"
       }
     }
   },

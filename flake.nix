@@ -14,6 +14,10 @@
       url = "github:midoBB/nvim-quicktype";
       flake = false;
     };
+    "plugins-winpick" = {
+      url = "github:MarcusGrass/nvim_winpick";
+      flake = false;
+    };
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -140,11 +144,11 @@
               nvim-lspconfig
               flash-nvim
               nui-nvim
-              nvim-window-picker
               noice-nvim
               nvzone-menu
               pkgs.neovimPlugins.debugmaster
               pkgs.neovimPlugins.quicktype
+              pkgs.neovimPlugins.winpick
               nvzone-volt
               nvzone-typr
               fidget-nvim
