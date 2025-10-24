@@ -31,11 +31,11 @@ return {
 				enabled = true,
 			},
 			dev_log = {
-				enabled = true,
+				enabled = false,
 				filter = nil,
 				notify_errors = false,
 				open_cmd = "15split",
-				focus_on_open = true,
+				focus_on_open = false,
 			},
 			dev_tools = {
 				autostart = false,
@@ -111,7 +111,7 @@ return {
 
 
 		-- Mapear tecla para abrir el selector
-		vim.keymap.set({ "n" }, "<M-m>", function()
+		vim.keymap.set({ "n" }, "<M-f>", function()
 			M.select_flutter_command()
 		end, { desc = "Seleccionar y ejecutar un comando Flutter" })
 	end,
