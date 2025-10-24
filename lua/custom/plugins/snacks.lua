@@ -11,7 +11,7 @@ return {
 		indent = { enabled = true },
 		input = { enabled = true },
 		image = { enabled = true },
-		picker = { enabled = true, ui_select = false },
+		picker = { enabled = true, ui_select = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
