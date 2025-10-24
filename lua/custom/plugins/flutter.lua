@@ -52,67 +52,45 @@ return {
 
 		-- Funcionalidad extendida para seleccionar y ejecutar comandos Flutter
 		local M = {}
-		local commands = require("flutter-tools.commands")
-		local devices = require("flutter-tools.devices")
 
-		-- Lista de comandos disponibles
+		--- Obtiene todos los comandos de Neovim que empiecen por "Flutter"
 		function M.get_flutter_commands()
-			return {
-				{ label = "Flutter Run", command = commands.run },
-				{ label = "Flutter Debug", command = "FlutterDebug" },
-				{ label = "Flutter Reload", command = commands.reload },
-				{ label = "Flutter Restart", command = commands.restart },
-				{ label = "Flutter Quit", command = commands.quit },
-				{ label = "Flutter Attach", command = commands.attach },
-				{ label = "Flutter Detach", command = commands.detach },
-				{ label = "Flutter Outline Toggle", command = "FlutterOutlineToggle" },
-				{ label = "Flutter DevTools", command = "FlutterDevTools" },
-				{ label = "Flutter DevTools Activate", command = "FlutterDevToolsActivate" },
-				{ label = "Flutter Copy Profiler Url", command = commands.copy_profiler_url },
-				{ label = "Flutter LSP Restart", command = "FlutterLspRestart" },
-				{ label = "Flutter Super", command = "FlutterSuper" },
-				{ label = "Flutter Reanalyze", command = "FlutterReanalyze" },
-				{ label = "Flutter Rename", command = "FlutterRename" },
-				{ label = "Flutter Log Clear", command = "FlutterLogClear" },
-				{ label = "Flutter Log Toggle", command = "FlutterLogToggle" },
-				{ label = "Flutter Devices", command = devices.list_devices },
-				{ label = "Flutter Emulators", command = devices.list_emulators },
-			}
+			local cmds = vim.api.nvim_get_commands({})
+			local flutter_cmds = {}
+
+			for name, _ in pairs(cmds) do
+				if name:match("^Flutter") then
+					table.insert(flutter_cmds, name)
+				end
+			end
+
+			table.sort(flutter_cmds)
+			return flutter_cmds
 		end
 
-		-- Selector de comandos con vim.ui.select
+		--- Muestra el menú con vim.ui.select
 		function M.select_flutter_command()
 			local cmds = M.get_flutter_commands()
 
+			if #cmds == 0 then
+				vim.notify("No se encontraron comandos Flutter registrados.", vim.log.levels.WARN)
+				return
+			end
+
 			vim.ui.select(cmds, {
 				prompt = "Selecciona un comando Flutter:",
-				format_item = function(item)
-					return item.label
-				end,
-			}, function(selected_command)
-				if selected_command then
-					local cmd = selected_command.command
-
-					if type(cmd) == "function" then
-						local success, msg = pcall(cmd)
-						if not success then
-							vim.notify(msg, vim.log.levels.ERROR)
-						end
-					elseif type(cmd) == "string" then
-						vim.cmd(cmd)
-					else
-						vim.notify("Tipo de comando no soportado.", vim.log.levels.ERROR)
-					end
+			}, function(selected)
+				if selected then
+					vim.cmd(selected)
 				else
 					vim.notify("No se seleccionó ningún comando.", vim.log.levels.WARN)
 				end
 			end)
 		end
 
-
-		-- Mapear tecla para abrir el selector
-		vim.keymap.set({ "n" }, "<M-f>", function()
-			M.select_flutter_command()
-		end, { desc = "Seleccionar y ejecutar un comando Flutter" })
+		-- Mapeo de tecla para abrir el selector
+		vim.keymap.set("n", "<M-f>", M.select_flutter_command, {
+			desc = "Seleccionar y ejecutar un comando Flutter",
+		})
 	end,
 }
