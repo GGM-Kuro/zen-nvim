@@ -2,6 +2,7 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		-- Creates a beautiful debugger UI
+		"nvimtools/hydra.nvim",
 		"rcarriga/nvim-dap-ui",
 
 		-- Required dependency for nvim-dap-ui
@@ -11,7 +12,7 @@ return {
 		{ "jay-babu/mason-nvim-dap.nvim", enabled = require("nixCatsUtils").lazyAdd(true, false) },
 	},
 	config = function()
-		local dap = require("dap")
+		local dap, dapui, hydra = require("dap"), require("dapui"), require("hydra")
 
 		vim.fn.sign_define("DapBreakpoint", {
 			text = " ",
@@ -29,9 +30,6 @@ return {
 			text = " ",
 			texthl = "DiagnosticSignInfo",
 		})
-
-		local dap = require("dap")
-		local dapui = require("dapui")
 
 		-- NOTE: nixCats: dont use mason on nix. We can already download stuff just fine.
 		if not require("nixCatsUtils").isNixCats then
@@ -117,6 +115,98 @@ return {
 					terminate = "⏹",
 					disconnect = "⏏",
 				},
+			},
+			mappings = {
+				-- Use a table to apply multiple mappings
+				expand = { "<CR>", "<2-LeftMouse>" },
+				open = "o",
+				remove = "d",
+				edit = "e",
+				repl = "r",
+			},
+			layouts = {
+				{
+					elements = { "scopes", "watches", "stacks", "breakpoints" },
+					size = 60,
+					position = "right",
+				},
+				{ elements = { "console", "repl" }, size = 0.25, position = "bottom" },
+			},
+			render = { indent = 2 },
+			tray = {
+				open_on_start = true,
+				elements = { "repl" },
+				size = 10,
+				position = "right", -- Can be "left", "right", "top", "bottom"
+			},
+			floating = {
+				max_height = nil, -- These can be integers or a float between 0 and 1.
+				max_width = nil, -- Floats will be treated as percentage of your screen.
+				mappings = {
+					close = { "q", "<Esc>" },
+				},
+			},
+			windows = { indent = 1 },
+		})
+		-- Menu
+		local hint = [[
+ Nvim DAP
+ _d_: Start/Continue  _j_: StepOver _k_: StepOut _l_: StepInto ^
+ _bp_: Toggle Breakpoint  _bc_: Conditional Breakpoint ^
+ _?_: log point ^
+ _c_: Run To Cursor ^
+ _h_: Show information of the variable under the cursor ^
+ _x_: Stop Debbuging ^
+ ^^                                                      _<Esc>_
+]]
+
+		hydra({
+			name = "dap",
+			hint = hint,
+			mode = "n",
+			config = {
+				color = "blue",
+				invoke_on_body = true,
+				hint = {
+					border = "rounded",
+					position = "bottom",
+				},
+			},
+			body = "<M-d>",
+			heads = {
+				{ "d", dap.continue },
+				{ "bp", dap.toggle_breakpoint },
+				{ "l", dap.step_into },
+				{ "j", dap.step_over },
+				{ "k", dap.step_out },
+				{ "h", dapui.eval },
+				{ "c", dap.run_to_cursor },
+				{
+					"bc",
+					function()
+						vim.ui.input({ prompt = "Condition: " }, function(condition)
+							dap.set_breakpoint(condition)
+						end)
+					end,
+				},
+				{
+					"?",
+					function()
+						vim.ui.input({ prompt = "Log: " }, function(log)
+							dap.set_breakpoint(nil, nil, log)
+						end)
+					end,
+				},
+				{
+					"x",
+					function()
+						dap.terminate()
+						dapui.close({})
+						dap.clear_breakpoints()
+					end,
+				},
+
+				{ "<Esc>", nil, { exit = true } },
 			},
 		})
 
