@@ -149,6 +149,7 @@
               pkgs.neovimPlugins.debugmaster
               pkgs.neovimPlugins.quicktype
               pkgs.neovimPlugins.winpick
+              hydra-nvim
               nvzone-volt
               nvzone-typr
               fidget-nvim
