@@ -87,11 +87,14 @@ return {
     if require("nixCatsUtils").enableForCategory("python") then
       table.insert(adapters, require("neotest-python")({
                 dap = {
-                    justMyCode = false,
+                    justMyCode = true,
                 },
-                args = {"--rootdir", vim.fn.getcwd()},
+                args = {"-v","-s"},
                 runner = "pytest",
-                python = ".venv/bin/python"
+                python = ".venv/bin/python",
+                env = {
+                    PYTHONPATH = ".venv/bin/python"
+                }
             }))
     end
 
