@@ -24,7 +24,7 @@ return {
 			-- Include the currently focused window
 			include_current_win = false,
 			-- Include windows that cannot be focused
-			include_unfocusable_windows = false,
+			include_unfocusable_windows = true,
 			-- Bufferoptions that should be filtered on
 			bo = {
 				filetype = {
