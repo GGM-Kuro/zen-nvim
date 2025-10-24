@@ -168,7 +168,6 @@ return {
 				color = "blue",
 				invoke_on_body = true,
 				hint = {
-					border = "rounded",
 					position = "bottom",
 				},
 			},
