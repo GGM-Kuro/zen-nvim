@@ -12,7 +12,7 @@ return {
 		indent = { enabled = true },
 		input = { enabled = true },
 		image = { enabled = true },
-		picker = { enabled = true, ui_select = true },
+		picker = { enabled = true, ui_select = false },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
@@ -71,7 +71,7 @@ return {
 					Snacks.picker.grep()
 				end, "Find Grep")
 				map("<leader>fh", function()
-					Snacks.picker.help({ format= 'file'})
+					Snacks.picker.help()
 				end, "Find Help")
 				map("<leader>fs", function()
 					Snacks.picker.git_status()
