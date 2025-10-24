@@ -2,7 +2,7 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		-- Creates a beautiful debugger UI
-		-- "nvimtools/hydra.nvim",
+		"nvimtools/hydra.nvim",
 		"rcarriga/nvim-dap-ui",
 
 		-- Required dependency for nvim-dap-ui
@@ -148,67 +148,67 @@ return {
 			},
 			windows = { indent = 1 },
 		})
--- 		-- Menu
--- 		local hint = [[
---  Nvim DAP
---  _d_: Start/Continue  _j_: StepOver _k_: StepOut _l_: StepInto ^
---  _bp_: Toggle Breakpoint  _bc_: Conditional Breakpoint ^
---  _?_: log point ^
---  _c_: Run To Cursor ^
---  _h_: Show information of the variable under the cursor ^
---  _x_: Stop Debbuging ^
---  ^^                                                      _<Esc>_
--- ]]
---
--- 		hydra({
--- 			name = "dap",
--- 			hint = hint,
--- 			mode = "n",
--- 			config = {
--- 				color = "blue",
--- 				invoke_on_body = true,
--- 				hint = {
--- 					position = "bottom",
--- 				},
--- 			},
--- 			body = "<M-d>",
--- 			heads = {
--- 				{ "d", dap.continue },
--- 				{ "bp", dap.toggle_breakpoint },
--- 				{ "l", dap.step_into },
--- 				{ "j", dap.step_over },
--- 				{ "k", dap.step_out },
--- 				{ "h", dapui.eval },
--- 				{ "c", dap.run_to_cursor },
--- 				{
--- 					"bc",
--- 					function()
--- 						vim.ui.input({ prompt = "Condition: " }, function(condition)
--- 							dap.set_breakpoint(condition)
--- 						end)
--- 					end,
--- 				},
--- 				{
--- 					"?",
--- 					function()
--- 						vim.ui.input({ prompt = "Log: " }, function(log)
--- 							dap.set_breakpoint(nil, nil, log)
--- 						end)
--- 					end,
--- 				},
--- 				{
--- 					"x",
--- 					function()
--- 						dap.terminate()
--- 						dapui.close({})
--- 						dap.clear_breakpoints()
--- 					end,
--- 				},
---
--- 				{ "<Esc>", nil, { exit = true } },
--- 			},
--- 		})
---
+		-- Menu
+		local hint = [[
+                 Nvim DAP
+                 _d_: Start/Continue  _j_: StepOver _k_: StepOut _l_: StepInto ^
+                 _bp_: Toggle Breakpoint  _bc_: Conditional Breakpoint ^
+                 _?_: log point ^
+                 _c_: Run To Cursor ^
+                 _h_: Show information of the variable under the cursor ^
+                 _x_: Stop Debbuging ^
+                 ^^                                                      _<Esc>_
+                ]]
+
+		hydra({
+			name = "dap",
+			hint = hint,
+			mode = "n",
+			config = {
+				color = "blue",
+				invoke_on_body = true,
+				hint = {
+					position = "bottom",
+				},
+			},
+			body = "<M-d>",
+			heads = {
+				{ "d", dap.continue },
+				{ "bp", dap.toggle_breakpoint },
+				{ "l", dap.step_into },
+				{ "j", dap.step_over },
+				{ "k", dap.step_out },
+				{ "h", dapui.eval },
+				{ "c", dap.run_to_cursor },
+				{
+					"bc",
+					function()
+						vim.ui.input({ prompt = "Condition: " }, function(condition)
+							dap.set_breakpoint(condition)
+						end)
+					end,
+				},
+				{
+					"?",
+					function()
+						vim.ui.input({ prompt = "Log: " }, function(log)
+							dap.set_breakpoint(nil, nil, log)
+						end)
+					end,
+				},
+				{
+					"x",
+					function()
+						dap.terminate()
+						dapui.close({})
+						dap.clear_breakpoints()
+					end,
+				},
+
+				{ "<Esc>", nil, { exit = true } },
+			},
+		})
+
 		-- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
 		vim.keymap.set("n", "<F8>", dapui.toggle, { desc = "Debug: See last session result." })
 
