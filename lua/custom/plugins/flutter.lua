@@ -111,7 +111,7 @@ return {
 
 
 		-- Mapear tecla para abrir el selector
-		vim.keymap.set({ "n" }, "<leader>mm", function()
+		vim.keymap.set({ "n" }, "<M-m>", function()
 			M.select_flutter_command()
 		end, { desc = "Seleccionar y ejecutar un comando Flutter" })
 	end,
