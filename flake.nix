@@ -10,6 +10,11 @@
       flake = false;
     };
 
+    "plugins-neotest" = {
+      url = "github:nvim-neotest/neotest";
+      flake = false;
+    };
+
     "plugins-snacks" = {
       url = "github:folke/snacks.nvim";
       flake = false;
@@ -152,6 +157,7 @@
               noice-nvim
               nvzone-menu
               pkgs.neovimPlugins.debugmaster
+              pkgs.neovimPlugins.neotest
               pkgs.neovimPlugins.snacks
               pkgs.neovimPlugins.quicktype
               pkgs.neovimPlugins.winpick
@@ -172,15 +178,15 @@
               mini-icons
               flutter-tools-nvim
               mini-pick
-              neotest
+              # neotest
               nvim-dap
               nvim-dap-ui
               nvim-dap-virtual-text
               nvim-nio
               (harpoon2.overrideAttrs { pname = "harpoon"; })
               nvim-dap-python
-              neotest-plenary
-              neotest-python
+              # neotest-plenary
+              # neotest-python
               nvim-autopairs
               blink-cmp
               blink-compat

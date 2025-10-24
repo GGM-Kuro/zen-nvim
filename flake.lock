@@ -47,6 +47,22 @@
         "type": "github"
       }
     },
+    "plugins-neotest": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760257881,
+        "narHash": "sha256-IzR32B0B+0DYGc7SRgIalWNJjMCM51NjcL0RT7SlzdU=",
+        "owner": "nvim-neotest",
+        "repo": "neotest",
+        "rev": "7166dc36af2760a76479e021e0521e23f62165f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neotest",
+        "repo": "neotest",
+        "type": "github"
+      }
+    },
     "plugins-quicktype": {
       "flake": false,
       "locked": {
@@ -100,6 +116,7 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "plugins-debugmaster": "plugins-debugmaster",
+        "plugins-neotest": "plugins-neotest",
         "plugins-quicktype": "plugins-quicktype",
         "plugins-snacks": "plugins-snacks",
         "plugins-winpick": "plugins-winpick"
