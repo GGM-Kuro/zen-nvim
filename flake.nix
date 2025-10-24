@@ -144,6 +144,7 @@
               nvim-lspconfig
               flash-nvim
               nui-nvim
+              telescope-ui-select-nvim
               noice-nvim
               nvzone-menu
               pkgs.neovimPlugins.debugmaster

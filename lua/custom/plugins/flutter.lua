@@ -79,6 +79,7 @@ return {
 
 			vim.ui.select(cmds, {
 				prompt = "Selecciona un comando Flutter:",
+                format = 'file',
 			}, function(selected)
 				if selected then
 					vim.cmd(selected)

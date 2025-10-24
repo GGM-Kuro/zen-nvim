@@ -10,5 +10,5 @@ vim.bo.smartindent = true
 
 -- Opcional: eliminar espacios al final automáticamente (requiere autocommand)
 
-vim.wo.colorcolumn = "80"
+vim.wo.colorcolumn = "120"
 

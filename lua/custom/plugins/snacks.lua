@@ -20,6 +20,8 @@ return {
 		toggle = { enabled = true },
 		words = { enabled = false },
 	},
+
+
 	init = function()
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",
@@ -68,7 +70,7 @@ return {
 					Snacks.picker.grep()
 				end, "Find Grep")
 				map("<leader>fh", function()
-					Snacks.picker.help()
+					Snacks.picker.help({ format= 'file'})
 				end, "Find Help")
 				map("<leader>fs", function()
 					Snacks.picker.git_status()
