@@ -87,7 +87,7 @@ return {
     if require("nixCatsUtils").enableForCategory("python") then
       table.insert(adapters, require("neotest-python")({
                 dap = {
-                    kustMyCode = false,
+                    justMyCode = false,
                     console = "inegratedTerminal",
                 },
                 args = { "--log-level", "DEBUG", "--quiet"},
