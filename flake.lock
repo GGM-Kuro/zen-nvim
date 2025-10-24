@@ -63,6 +63,22 @@
         "type": "github"
       }
     },
+    "plugins-snacks": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761284319,
+        "narHash": "sha256-oXoLw3Iibp8GENe6O/OhU7jRdHLs+keau23vfMWfVzI=",
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "rev": "b029511abb1359da28de45faeeec400f419d7ee7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "type": "github"
+      }
+    },
     "plugins-winpick": {
       "flake": false,
       "locked": {
@@ -85,6 +101,7 @@
         "nixpkgs": "nixpkgs",
         "plugins-debugmaster": "plugins-debugmaster",
         "plugins-quicktype": "plugins-quicktype",
+        "plugins-snacks": "plugins-snacks",
         "plugins-winpick": "plugins-winpick"
       }
     }

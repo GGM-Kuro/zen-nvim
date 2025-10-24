@@ -10,6 +10,10 @@
       flake = false;
     };
 
+    "plugins-snacks" = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
+    };
     "plugins-quicktype" = {
       url = "github:midoBB/nvim-quicktype";
       flake = false;
@@ -148,6 +152,7 @@
               noice-nvim
               nvzone-menu
               pkgs.neovimPlugins.debugmaster
+              pkgs.neovimPlugins.snacks
               pkgs.neovimPlugins.quicktype
               pkgs.neovimPlugins.winpick
               # hydra-nvim
@@ -185,7 +190,7 @@
               nvim-treesitter-parsers.dart
               plenary-nvim
               nightfox-nvim
-              snacks-nvim
+              # snacks-nvim
               vim-surround
               vim-easy-align
               vim-repeat
