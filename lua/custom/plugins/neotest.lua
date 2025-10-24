@@ -88,9 +88,8 @@ return {
       table.insert(adapters, require("neotest-python")({
                 dap = {
                     justMyCode = false,
-                    console = "inegratedTerminal",
                 },
-                args = { "--log-level", "DEBUG", "--quiet"},
+                args = {"--rootdir", vim.fn.getcwd()},
                 runner = "pytest",
                 python = ".venv/bin/python"
             }))
