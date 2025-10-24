@@ -156,6 +156,7 @@
               lazydev-nvim
               conform-nvim
               nvim-colorizer-lua
+              rocks-nvim
               mini-splitjoin
               friendly-snippets
               gitsigns-nvim
