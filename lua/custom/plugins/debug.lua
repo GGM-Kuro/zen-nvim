@@ -150,15 +150,15 @@ return {
 		})
 		-- Menu
 		local hint = [[
-                 Nvim DAP
-                 _d_: Start/Continue  _j_: StepOver _k_: StepOut _l_: StepInto ^
-                 _bp_: Toggle Breakpoint  _bc_: Conditional Breakpoint ^
-                 _?_: log point ^
-                 _c_: Run To Cursor ^
-                 _h_: Show information of the variable under the cursor ^
-                 _x_: Stop Debbuging ^
-                 ^^                                                      _<Esc>_
-                ]]
+             Nvim DAP
+             _d_: Start/Continue  _j_: StepOver _k_: StepOut _l_: StepInto ^
+             _bp_: Toggle Breakpoint  _bc_: Conditional Breakpoint ^
+             _?_: log point ^
+             _c_: Run To Cursor ^
+             _h_: Show information of the variable under the cursor ^
+             _x_: Stop Debbuging ^
+             ^^                                                      _<Esc>_
+            ]]
 
 		hydra({
 			name = "dap",

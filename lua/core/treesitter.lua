@@ -19,6 +19,7 @@ return { -- Highlight, edit, and navigate code
               "python",
               "query",
               "toml",
+              "javascript",
               "typescript",
               "vim",
               "vimdoc",
