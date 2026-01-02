@@ -79,17 +79,11 @@ return {
 		})
 
 		vim.lsp.enable("lua_ls")
-		vim.lsp.enable("phpactor")
-		-- vim.lsp.enable("dartls")
 		vim.lsp.enable("ts_ls", require("nixCatsUtils").enableForCategory("javascript"))
 		vim.lsp.enable("tailwind", require("nixCatsUtils").enableForCategory("javascript"))
 		vim.lsp.enable("emmet", require("nixCatsUtils").enableForCategory("javascript"))
-
-		-- vim.lsp.enable("ruff-lsp", require("nixCatsUtils").enableForCategory("python"))
-		-- vim.lsp.enable("pylsp", require("nixCatsUtils").enableForCategory("python"))
 		vim.lsp.enable("pyright", require("nixCatsUtils").enableForCategory("python"))
-		vim.lsp.enable("htmldjango", require("nixCatsUtils").enableForCategory("python"))
-		-- vim.lsp.enable("ruff", require("nixCatsUtils").enableForCategory("python"))
+		-- vim.lsp.enable("htmldjango", require("nixCatsUtils").enableForCategory("python"))
 		vim.lsp.enable("gopls", require("nixCatsUtils").enableForCategory("go"))
 		vim.lsp.enable("golangci_lint", require("nixCatsUtils").enableForCategory("go"))
 		vim.lsp.enable("rust_analyzer", require("nixCatsUtils").enableForCategory("rust"))
