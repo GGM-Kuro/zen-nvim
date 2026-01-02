@@ -133,6 +133,7 @@
             python = with pkgs; [
               ruff
               pyright
+              djhtml
               python312
               python312Packages.python-lsp-server
               python312Packages.python-lsp-ruff
