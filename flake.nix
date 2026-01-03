@@ -27,7 +27,6 @@
       url = "github:MarcusGrass/nvim_winpick";
       flake = false;
     };
-
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -142,6 +141,7 @@
               python313Packages.python-lsp-server
               python313Packages.python-lsp-ruff
               python313Packages.pytest
+              python313Packages.django
 
             ];
           };
@@ -158,7 +158,6 @@
               noice-nvim
               nvzone-menu
               pkgs.neovimPlugins.debugmaster
-              pkgs.neovimPlugins.neotest
               pkgs.neovimPlugins.snacks
               pkgs.neovimPlugins.quicktype
               pkgs.neovimPlugins.winpick
@@ -193,6 +192,7 @@
               blink-compat
               nvim-treesitter.withAllGrammars
               nvim-treesitter-textobjects
+              nvim-treesitter-pyfold
               nvim-treesitter-parsers.dart
               nvim-treesitter-parsers.htmldjango
               plenary-nvim
