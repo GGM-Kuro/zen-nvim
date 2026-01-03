@@ -47,22 +47,6 @@
         "type": "github"
       }
     },
-    "plugins-django": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1766746866,
-        "narHash": "sha256-BoaApc8Nfnx0EuY65msPx90zNjfPhKqg7eJz6vKoiQA=",
-        "owner": "mizisu",
-        "repo": "django.nvim",
-        "rev": "8e4a251a530456d41a2a3c764b37cabdf249aa12",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mizisu",
-        "repo": "django.nvim",
-        "type": "github"
-      }
-    },
     "plugins-neotest": {
       "flake": false,
       "locked": {
@@ -132,7 +116,6 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "plugins-debugmaster": "plugins-debugmaster",
-        "plugins-django": "plugins-django",
         "plugins-neotest": "plugins-neotest",
         "plugins-quicktype": "plugins-quicktype",
         "plugins-snacks": "plugins-snacks",

@@ -138,7 +138,6 @@
               python312Packages.python-lsp-server
               python312Packages.python-lsp-ruff
               python312Packages.pytest
-              python312Packages.djhtml
               python313
               python313Packages.python-lsp-server
               python313Packages.python-lsp-ruff
@@ -196,6 +195,7 @@
               nvim-treesitter-textobjects
               nvim-treesitter-pyfold
               nvim-treesitter-parsers.dart
+              nvim-treesitter-parsers.htmldjango
               plenary-nvim
               nightfox-nvim
               # snacks-nvim

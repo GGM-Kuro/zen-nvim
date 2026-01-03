@@ -10,7 +10,7 @@ return { -- Highlight, edit, and navigate code
               "diff",
               "http",
               "html",
-              "djhtml",
+              "htmldjango",
               "json",
               "lua",
               "luadoc",
