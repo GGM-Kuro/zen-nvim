@@ -193,7 +193,6 @@
               blink-compat
               nvim-treesitter.withAllGrammars
               nvim-treesitter-textobjects
-              nvim-treesitter-pyfold
               nvim-treesitter-parsers.dart
               nvim-treesitter-parsers.htmldjango
               plenary-nvim
