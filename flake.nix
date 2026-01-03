@@ -28,11 +28,6 @@
       flake = false;
     };
 
-    "plugins-django" = {
-      url = "github:mizisu/django.nvim";
-      flake = false;
-    };
-
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -139,11 +134,11 @@
             python = with pkgs; [
               ruff
               pyright
-              djhtml
               python312
               python312Packages.python-lsp-server
               python312Packages.python-lsp-ruff
               python312Packages.pytest
+              python312Packages.djhtml
               python313
               python313Packages.python-lsp-server
               python313Packages.python-lsp-ruff
@@ -161,7 +156,6 @@
               flash-nvim
               nui-nvim
               telescope-ui-select-nvim
-              nvim-treesitter-parsers.htmldjango
               noice-nvim
               nvzone-menu
               pkgs.neovimPlugins.debugmaster
@@ -169,7 +163,6 @@
               pkgs.neovimPlugins.snacks
               pkgs.neovimPlugins.quicktype
               pkgs.neovimPlugins.winpick
-              pkgs.neovimPlugins.django
               # hydra-nvim
               nvzone-volt
               nvzone-typr
