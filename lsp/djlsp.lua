@@ -1,9 +1,6 @@
 ---@type vim.lsp.Config
-return{
-    cmd = { "djlsp" },
-    -- init_options = {
-    --     django_settings_module = "<your.settings.module>",
-    --     docker_compose_file = "docker-compose.yml",
-    --     docker_compose_service = "django"
-    -- }
+return {
+	cmd = { "djlsp" },
+	root_markers = { "manage.py", ".git" },
+	filetypes = { "html","htmldjango" },
 }
