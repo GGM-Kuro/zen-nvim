@@ -27,6 +27,12 @@
       url = "github:MarcusGrass/nvim_winpick";
       flake = false;
     };
+
+    "plugins-django" = {
+      url = "github:mizisu/django.nvim";
+      flake = false;
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -155,6 +161,7 @@
               flash-nvim
               nui-nvim
               telescope-ui-select-nvim
+              nvim-treesitter-parsers.htmldjango
               noice-nvim
               nvzone-menu
               pkgs.neovimPlugins.debugmaster
@@ -162,6 +169,7 @@
               pkgs.neovimPlugins.snacks
               pkgs.neovimPlugins.quicktype
               pkgs.neovimPlugins.winpick
+              pkgs.neovimPlugins.django
               # hydra-nvim
               nvzone-volt
               nvzone-typr
