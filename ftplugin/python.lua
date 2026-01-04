@@ -10,4 +10,19 @@ vim.bo.smartindent = true
 -- Color de guía de columnas en 79 caracteres (PEP 8)
 vim.wo.colorcolumn = "79"
 
+-- ftplugin/python.lua
+
+local bufnr = vim.api.nvim_get_current_buf()
+
+-- Evita reiniciar TS múltiples veces
+if vim.b[bufnr].treesitter_started then
+  return
+end
+
+local ok = pcall(vim.treesitter.start, bufnr)
+if ok then
+  vim.b[bufnr].treesitter_started = true
+end
+
+
 

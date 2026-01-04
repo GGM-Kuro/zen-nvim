@@ -27,6 +27,7 @@ return { -- Highlight, edit, and navigate code
               "vimdoc",
               "yaml",
 		}),
+        -- autoinstall = true,
 		auto_install = require("nixCatsUtils").lazyAdd(true, false),
 
 		highlight = {

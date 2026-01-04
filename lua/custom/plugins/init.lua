@@ -54,6 +54,8 @@ return {
 			{ "ga", "<plug>(EasyAlign)", desc = "Easy Align", mode = { "n", "x" } },
 		},
 	},
+    { "catppuccin/nvim", name = "catppuccin", priority = 500 },
+    { "drewtempelmeyer/palenight.vim", name = "palenight", priority = 500 },
 	{
 		"EdenEast/nightfox.nvim",
 		priority = 1000,
