@@ -120,7 +120,6 @@
               fd
               ripgrep
               tree-sitter
-              # tree-sitter-grammars
               gh
               vscode-extensions.dart-code.flutter
               git
@@ -160,7 +159,6 @@
               pkgs.neovimPlugins.snacks
               pkgs.neovimPlugins.quicktype
               pkgs.neovimPlugins.winpick
-              # hydra-nvim
               nvzone-volt
               nvzone-typr
               fidget-nvim
@@ -177,25 +175,21 @@
               mini-icons
               flutter-tools-nvim
               mini-pick
-              # neotest
               nvim-dap
               nvim-dap-ui
               nvim-dap-virtual-text
               nvim-nio
               (harpoon2.overrideAttrs { pname = "harpoon"; })
               nvim-dap-python
-              # neotest-plenary
-              # neotest-python
               nvim-autopairs
               blink-cmp
               blink-compat
               nvim-treesitter.withAllGrammars
-              nvim-treesitter-textobjects
-              nvim-treesitter-pyfold
+              # nvim-treesitter-pyfold
+              # nvim-treesitter-textobjects
               nvim-treesitter-parsers.dart
               plenary-nvim
               nightfox-nvim
-              # snacks-nvim
               vim-surround
               vim-easy-align
               vim-repeat
