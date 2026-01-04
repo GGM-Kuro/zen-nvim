@@ -141,7 +141,6 @@
               python313Packages.python-lsp-server
               python313Packages.python-lsp-ruff
               python313Packages.pytest
-              python313Packages.django
 
             ];
           };
@@ -192,8 +191,8 @@
               blink-compat
               nvim-treesitter.withAllGrammars
               nvim-treesitter-textobjects
+              nvim-treesitter-pyfold
               nvim-treesitter-parsers.dart
-              nvim-treesitter-parsers.htmldjango
               plenary-nvim
               nightfox-nvim
               # snacks-nvim
