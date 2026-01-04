@@ -11,6 +11,7 @@ return { -- Highlight, edit, and navigate code
               "http",
               "html",
               "htmldjango",
+              "djlint",
               "json",
               "lua",
               "luadoc",

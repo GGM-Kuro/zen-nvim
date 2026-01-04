@@ -131,6 +131,7 @@
             ];
             python = with pkgs; [
               ruff
+              djlint
               pyright
               python312
               python312Packages.python-lsp-server
