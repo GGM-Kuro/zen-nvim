@@ -19,7 +19,7 @@ return {
 				name = "luasnip",
 				config = function()
 					require("luasnip.loaders.from_vscode").lazy_load()
-					require("luasnip").filetype_extend("htmldjango", { "html" })
+					require("luasnip").filetype_extend("htmldjango", { "html", "django" })
 				end,
 			},
 			{ "echasnovski/mini.icons", opts = {} },
