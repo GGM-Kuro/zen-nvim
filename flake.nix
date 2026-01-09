@@ -126,7 +126,7 @@
               imagemagick
               nixd
               quicktype
-              nixfmt-rfc-style
+              nixfmt
               stylua
             ];
             python = with pkgs; [

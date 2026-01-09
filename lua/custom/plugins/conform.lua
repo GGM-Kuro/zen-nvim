@@ -2,7 +2,7 @@ local formatters = {
 	lua = { "stylua", lsp_format = "fallback" },
 	nix = { "nixfmt" },
 	json = { "jq" },
-	python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+	python = { "ruf","ruff_fix", "ruff_format", "ruff_organize_imports" },
     htmldjango = {"djlint"},
     dart = {'dart_format'},
 }

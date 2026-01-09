@@ -83,6 +83,8 @@ return {
 		vim.lsp.enable("tailwind", require("nixCatsUtils").enableForCategory("javascript"))
 		vim.lsp.enable("emmet", require("nixCatsUtils").enableForCategory("javascript"))
 		vim.lsp.enable("pyright", require("nixCatsUtils").enableForCategory("python"))
+		vim.lsp.enable("ruff", require("nixCatsUtils").enableForCategory("python"))
+		vim.lsp.enable("ruff-lsp", require("nixCatsUtils").enableForCategory("python"))
 		vim.lsp.enable("htmldjango", require("nixCatsUtils").enableForCategory("python"))
 		vim.lsp.enable("html", require("nixCatsUtils").enableForCategory("python"))
 		vim.lsp.enable("gopls", require("nixCatsUtils").enableForCategory("go"))
