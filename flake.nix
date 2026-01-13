@@ -133,14 +133,14 @@
               ruff
               djlint
               pyright
-              python312
-              python312Packages.python-lsp-server
-              python312Packages.python-lsp-ruff
-              python312Packages.pytest
+              # python312
+              # python312Packages.python-lsp-server
+              # python312Packages.python-lsp-ruff
+              # python312Packages.pytest
               python313
               python313Packages.python-lsp-server
               python313Packages.python-lsp-ruff
-              python313Packages.pytest
+              # python313Packages.pytest
 
             ];
           };
