@@ -78,6 +78,17 @@
           # This overlay grabs all the inputs named in the format
           # `plugins-<pluginName>`
           # Once we add this overlay to our nixpkgs, we are able to
+
+          (final: prev: {
+            python312Packages = prev.python312Packages.overrideScope (
+              _: pyprev: {
+                jaraco-test = pyprev.jaraco-test.overridePythonAttrs (_: {
+                  doCheck = false;
+                });
+              }
+            );
+
+          })
           # use `pkgs.neovimPlugins`, which is a set of our plugins.
           (utils.standardPluginOverlay inputs)
           # add any other flake overlays here.
@@ -133,14 +144,14 @@
               ruff
               djlint
               pyright
-              # python312
-              # python312Packages.python-lsp-server
-              # python312Packages.python-lsp-ruff
-              # python312Packages.pytest
+              python312
+              python312Packages.python-lsp-server
+              python312Packages.python-lsp-ruff
+              python312Packages.pytest
               python313
               python313Packages.python-lsp-server
               python313Packages.python-lsp-ruff
-              # python313Packages.pytest
+              python313Packages.pytest
 
             ];
           };
@@ -346,7 +357,7 @@
             name = defaultPackageName;
             packages = [ defaultPackage ];
             inputsFrom = [ ];
-            shellHook = '''';
+            shellHook = "";
           };
         };
 
