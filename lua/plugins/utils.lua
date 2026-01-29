@@ -1,17 +1,22 @@
 return {
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
+	{ "nvzone/volt", lazy = true },
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
+		opts = {
+			-- add any options here
 		},
-		config = function()
-			require("noice").setup({})
-		end,
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
 	},
-	{ "nvzone/volt", lazy = true },
 	{
 		"junegunn/vim-easy-align",
 
@@ -23,8 +28,22 @@ return {
 	{
 		"nvzone/Typr",
 		lazy = true,
-        opts = {},
+		opts = {},
 		cmd = { "Typr", "TyprStats" },
 	},
-	{ "nvim-mini/mini.splitjoin", config = true },
+	{
+		"nvim-mini/mini.splitjoin",
+		keys = { { "<leader>cs" } },
+		config = function()
+			require("mini.splitjoin").setup({ mappings = { toggle = "<leader>cs" } })
+		end,
+	},
+	{
+		"nvim-mini/mini.cursorword",
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {},
+		config = function()
+			require("mini.cursorword").setup()
+		end,
+	},
 }

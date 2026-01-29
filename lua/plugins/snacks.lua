@@ -6,7 +6,7 @@ return {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
-		dashboard = require("custom.dashboard"),
+		dashboard = require("kuro.dashboard"),
 		explorer = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
@@ -75,9 +75,9 @@ return {
 				map("<leader>fh", function()
 					Snacks.picker.help()
 				end, "Find Help")
-				map("<leader>fs", function()
-					Snacks.picker.git_status()
-				end, "Find Modified Files")
+				-- map("<leader>fs", function()
+				-- 	Snacks.picker.git_status()
+				-- end, "Find Modified Files")
 				map("<leader>:", function()
 					Snacks.picker.command_history()
 				end, "Find Command")

@@ -1,4 +1,6 @@
 require("core.lazy")
 require("config.options")
 require("config.keymaps")
-require("config.epic_replace")
+require("kuro.epic_replace")
+
+
