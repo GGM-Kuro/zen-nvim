@@ -11,7 +11,7 @@ return {
 		workspaces = {
 			{
 				name = "KuroNotes", -- Name of the workspace
-				path = os.getenv("HOME") .. "/.config/obsidian/KuroNotes", -- Path to the notes directory
+				path = os.getenv("HOME") .. "/.config/obsidian/Vaults/KuroMind", -- Path to the notes directory
 			},
 		},
 		completion = {
