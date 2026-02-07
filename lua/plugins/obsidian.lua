@@ -10,8 +10,9 @@ return {
 		legacy_commands = false,
 		workspaces = {
 			{
-				name = "KuroNotes", -- Name of the workspace
+				name = "KuroMind", -- Name of the workspace
 				path = os.getenv("HOME") .. "/.config/obsidian/Vaults/KuroMind", -- Path to the notes directory
+				-- path = "/mnt/e/Obsidian/Vaults/KuroMind/", -- Path to the notes directory
 			},
 		},
 		completion = {
@@ -25,7 +26,7 @@ return {
 
 		-- Settings for templates
 		templates = {
-			subdir = "templates", -- Subdirectory for templates
+			subdir = "99-Archivo/Templates", -- Subdirectory for templates
 			date_format = "%Y-%m-%d-%a", -- Date format for templates
 			gtime_format = "%H:%M", -- Time format for templates
 			tags = "", -- Default tags for templates
