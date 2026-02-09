@@ -46,4 +46,11 @@ return {
 			require("mini.cursorword").setup()
 		end,
 	},
+    {
+        'nvim-mini/mini.pairs',
+        version = '*',
+        config = function ()
+            require("mini.pairs").setup()
+        end
+    }
 }
