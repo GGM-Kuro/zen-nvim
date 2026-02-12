@@ -50,3 +50,4 @@ return {
 		{ section = "recent_files", indent = 6, cwd = true, limit = 4, padding = { 2, 0 } },
 	},
 }
+
