@@ -6,7 +6,19 @@ local capabilities =
 	vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
 
 require("fidget").setup({})
-require("mason").setup()
+require("mason").setup({
+    ensure_installed={
+        "debugpy",
+        "mypy",
+        "pyright",
+		"ruff",
+		"vtsls",
+		"lua_ls",
+		"rust_analyzer",
+		"gopls",
+		"tailwindcss",
+    }
+})
 
 require("mason-lspconfig").setup({
 	ensure_installed = {

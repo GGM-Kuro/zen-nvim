@@ -15,7 +15,6 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("n", "=ap", "ma=ap'a")
-map("n", "<leader>zig", "<cmd>LspRestart<cr>")
 
 map("n", "<leader>lt", function()
     vim.cmd [[ PlenaryBustedFile % ]]
@@ -28,7 +27,7 @@ map("x", "<leader>p", [["_dP]])
 map({ "n", "v" }, "<leader>y", [["+y]])
 map("n", "<leader>Y", [["+Y]])
 
-map({ "n", "v" }, "<leader>d", "\"_d")
+map({ "n", "v" }, "<leader>D", "\"_d")
 
 -- This is going to get me cancelled
 map("i", "<C-c>", "<Esc>")
@@ -58,28 +57,30 @@ end)
 
 map("n", "<leader>o", "o<Esc>k", vim.tbl_extend("force", opts, { desc = "Insert line below" }))
 map("n", "<leader>x", vim.cmd.bdelete , vim.tbl_extend("force", opts, { desc = "Delete buffer" }))
+map("n", "<leader>a", "ggVG" , vim.tbl_extend("force", opts, { desc = "Select all" }))
+map("n", "<s-r>", function() vim.cmd.LspRestart() end)
 
 
 -- Replace all occurrences
-vim.keymap.set("n", "<leader>rs",
+map("n", "<leader>rs",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   vim.tbl_extend("force", opts, { desc = "Replace all occurrences" })
 )
 
 -- Replace in current line
-vim.keymap.set("n", "<leader>rl",
+map("n", "<leader>rl",
   [[:s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   vim.tbl_extend("force", opts, { desc = "Replace in current line" })
 )
 
 -- Replace all with confirmation
-vim.keymap.set("n", "<leader>r?",
+map("n", "<leader>r?",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gcI<Left><Left><Left>]],
   vim.tbl_extend("force", opts, { desc = "Replace all with confirmation" })
 )
 
 -- Replace from cursor to end
-vim.keymap.set("n", "<leader>rf",
+map("n", "<leader>rf",
   [[:.,$s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   vim.tbl_extend("force", opts, { desc = "Replace from cursor to end" })
 )

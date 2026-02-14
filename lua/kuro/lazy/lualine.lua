@@ -9,7 +9,7 @@ return {
 				icons_enabled = true,
 				globalstatus = true,
 			},
-			extensions = { "quickfix", "fugitive" },
+			extensions = { "quickfix", "fugitive", "oil" },
 			sections = {
 				lualine_a = { { "mode", upper = true } },
 				lualine_b = { { "branch", icon = "" }, "db_ui#statusline" },
@@ -24,16 +24,16 @@ return {
 							removed = " ", -- Box icon for removed lines
 						},
 					},
-					{
-						require("noice").api.status.mode.get,
-						cond = require("noice").api.status.mode.has,
-						color = { fg = "#ff9e64" },
-					},
-					{
-						require("lazy.status").updates,
-						cond = require("lazy.status").has_updates,
-						color = { fg = "ff9e64" },
-					},
+					-- {
+					-- 	require("noice").api.status.mode.get,
+					-- 	cond = require("noice").api.status.mode.has,
+					-- 	color = { fg = "#ff9e64" },
+					-- },
+					-- {
+					-- 	require("lazy.status").updates,
+					-- 	cond = require("lazy.status").has_updates,
+					-- 	color = { fg = "ff9e64" },
+					-- },
 				},
 				lualine_y = { "filetype" },
 				lualine_z = { "location" },
@@ -41,7 +41,7 @@ return {
 			winbar = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { "filename" },
+				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {},
@@ -49,7 +49,7 @@ return {
 			inactive_winbar = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { "filename" },
+				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {},

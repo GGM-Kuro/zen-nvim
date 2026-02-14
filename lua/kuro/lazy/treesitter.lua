@@ -1,15 +1,20 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-        branch = "master",
+		branch = "master",
+		lazy = false,
+		build = ":TSUpdate",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+			"nvim-treesitter/nvim-treesitter-context",
+		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
-				-- A list of parser names, or "all"
 				ensure_installed = {
 					"vimdoc",
 					"javascript",
 					"typescript",
-                    "python",
+					"python",
 					"c",
 					"lua",
 					"rust",
@@ -17,28 +22,16 @@ return {
 					"bash",
 					"go",
 				},
-
-				-- Install parsers synchronously (only applied to `ensure_installed`)
 				sync_install = false,
-
-				-- Automatically install missing parsers when entering buffer
-				-- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
 				auto_install = true,
-
-				indent = {
-					enable = true,
-				},
-
+				indent = { enable = true },
 				highlight = {
-					-- `false` will disable the whole extension
 					enable = true,
 					disable = function(lang, buf)
 						if lang == "html" then
-							print("disabled")
 							return true
 						end
-
-						local max_filesize = 100 * 1024 -- 100 KB
+						local max_filesize = 100 * 1024
 						local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
 						if ok and stats and stats.size > max_filesize then
 							vim.notify(
@@ -49,11 +42,6 @@ return {
 							return true
 						end
 					end,
-
-					-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-					-- Set this to `true` if you depend on "syntax" being enabled (like for indentation).
-					-- Using this option may slow down your editor, and you may see some duplicate highlights.
-					-- Instead of true it can also be a list of languages
 					additional_vim_regex_highlighting = { "markdown" },
 				},
 			})
@@ -66,29 +54,76 @@ return {
 					branch = "master",
 				},
 			}
-
 			vim.treesitter.language.register("templ", "templ")
 		end,
 	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		lazy = false,
+		config = function()
+			local select = require("nvim-treesitter-textobjects.select")
+			local move = require("nvim-treesitter-textobjects.move")
+			local swap = require("nvim-treesitter-textobjects.swap")
 
+			local keymaps = {
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@conditional.outer",
+				["ic"] = "@conditional.inner",
+				["al"] = "@loop.outer",
+				["il"] = "@loop.inner",
+			}
+
+			for key, query in pairs(keymaps) do
+				vim.keymap.set({ "x", "o" }, key, function()
+					select.select_textobject(query, "textobjects")
+				end)
+			end
+
+			local move_keymaps = {
+				["]f"] = { fn = move.goto_next_start, query = "@function.outer" },
+				["]F"] = { fn = move.goto_next_end, query = "@function.outer" },
+				["[f"] = { fn = move.goto_previous_start, query = "@function.outer" },
+				["[F"] = { fn = move.goto_previous_end, query = "@function.outer" },
+				["]c"] = { fn = move.goto_next_start, query = "@conditional.outer" },
+				["[c"] = { fn = move.goto_previous_start, query = "@conditional.outer" },
+				["]l"] = { fn = move.goto_next_start, query = "@loop.outer" },
+				["[l"] = { fn = move.goto_previous_start, query = "@loop.outer" },
+			}
+
+			for key, opts in pairs(move_keymaps) do
+				vim.keymap.set("n", key, function()
+					opts.fn(opts.query, "textobjects")
+				end)
+			end
+
+			local swap_keymaps = {
+				["<c-p>"] = { fn = swap.swap_next, query = "@parameter.inner" },
+				["<c-s-p>"] = { fn = swap.swap_previous, query = "@parameter.inner" },
+			}
+
+			for key, opts in pairs(swap_keymaps) do
+				vim.keymap.set("n", key, function()
+					opts.fn(opts.query, "textobjects")
+				end)
+			end
+		end,
+	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		after = "nvim-treesitter",
 		config = function()
 			require("treesitter-context").setup({
-				enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-				multiwindow = false, -- Enable multiwindow support.
-				max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-				min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+				enable = true,
+				multiwindow = false,
+				max_lines = 0,
+				min_window_height = 0,
 				line_numbers = true,
-				multiline_threshold = 20, -- Maximum number of lines to show for a single context
-				trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-				mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
-				-- Separator between context and content. Should be a single character string, like '-'.
-				-- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+				multiline_threshold = 20,
+				trim_scope = "outer",
+				mode = "cursor",
 				separator = nil,
-				zindex = 20, -- The Z-index of the context window
-				on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+				zindex = 20,
+				on_attach = nil,
 			})
 		end,
 	},
